@@ -20,7 +20,6 @@ export class DashboardService {
         console.warn('Dashboard API failed or unauthorized. Injecting robust mock fallback profiles.', error);
         
         const mockDashboardPayload = {
-          // 1. Bar chart data (Matches component: data.chartbar)
           chartbar: [
             { label: 'Jan', value: 45 },
             { label: 'Feb', value: 70 },
@@ -29,14 +28,12 @@ export class DashboardService {
             { label: 'May', value: 35 }
           ],
 
-          // 2. Donut chart data (Matches component: data.chartDonut)
           chartDonut: [
             { label: 'Upstream', value: 40 },
             { label: 'Midstream', value: 35 },
             { label: 'Downstream', value: 25 }
           ],
           
-          // 3. User Table rows (Matches component: data.tableUsers)
           tableUsers: [
             { id: 1, firstName: 'John', lastName: 'Doe', username: 'johndoe' },
             { id: 2, firstName: 'Jane', lastName: 'Smith', username: 'janesmith' },

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, from, of } from 'rxjs';
-// FIX: Added 'map' explicitly into the RxJS operators import list
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 import * as PouchDBNamespace from 'pouchdb-browser';
@@ -43,14 +42,10 @@ export class AuthService {
     return !!localStorage.getItem('bearer_token');
   }
 
-  /**
-   * 1. Try the API first.
-   * 2. If the API is invalid/fails, fall back to checking PouchDB.
-   */
+ 
   login(username: string, password: string): Observable<any> {
     const sanitizedUsername = username.trim().toLowerCase();
 
-    // Step 1: Hit the real remote login API first
     return this.http.post(this.apiUrl, { username: sanitizedUsername, password }, { responseType: 'text' }).pipe(
       // FIX: Explicitly typed 'tokenResponse: any' to satisfy the compiler
       map((tokenResponse: any) => {
@@ -60,7 +55,6 @@ export class AuthService {
       catchError((apiError) => {
         console.warn('API login failed or invalid. Falling back to PouchDB validation...', apiError);
 
-        // Step 2: API failed/invalid, now look up credentials inside local PouchDB
         return from(this.db.get(sanitizedUsername)).pipe(
           map((userDoc: any) => {
             if (userDoc.password === password) {

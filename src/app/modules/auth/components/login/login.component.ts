@@ -42,7 +42,7 @@ onSubmit(): void {
         localStorage.setItem('bearer_token', cleanToken);
         console.log('Token successfully stored into local configuration.');
 
-        // Navigate directly into dashboard view window
+        // Navigate to dashboard view window
         this.router.navigate(['/dashboard']);
       } else {
         alert('Login Validation Failed! Please check your credentials.');

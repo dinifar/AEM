@@ -24,7 +24,6 @@ export class DashboardComponent implements OnInit {
         this.dashboardData = data;
         this.usersTable = data.tableUsers || [];
         
-        // Wait for elements to mount safely
         setTimeout(() => {
           this.initDonutChart(data.chartDonut);
           this.initBarChart(data.chartbar);
@@ -68,7 +67,6 @@ export class DashboardComponent implements OnInit {
   }
 
  initBarChart(barArray: any): void {
-    // 1. Log the exact data coming from the AEM server to see its keys
     console.log('Raw Bar Chart Array from API:', barArray);
 
     // 2. Multi-case check to handle 'chartbar' or 'chartBar' or inner envelopes safely
