@@ -1,0 +1,54 @@
+<div class="dashboard-page p-4">
+  
+  <h2 class="dashboard-main-title mb-4">Overview</h2>
+
+  <div *ngIf="dashboardData" class="row mb-5">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <div class="chart-card shadow-sm">
+        <div class="chart-card-header">Card Title</div>
+        <div class="chart-card-body d-flex align-items-center justify-content-center">
+          <div class="chart-wrapper">
+            <canvas id="donutChartCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="chart-card shadow-sm">
+        <div class="chart-card-header">Card Title</div>
+        <div class="chart-card-body d-flex align-items-center justify-content-center">
+          <div class="chart-wrapper">
+            <canvas id="barChartCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="dashboard-section-title mb-3">User List</h3>
+
+  <div *ngIf="dashboardData" class="table-card shadow-sm">
+    <div class="table-responsive">
+      <table class="table custom-dashboard-table mb-0">
+        <thead>
+          <tr>
+            <th style="width: 10%;">#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>User Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of usersTable; let i = index">
+            <td>{{ user.id || i + 1 }}</td>
+            <td>{{ user.firstName || user.name?.split(' ')[0] || user.username || '—' }}</td>
+            <td>{{ user.lastName || user.name?.split(' ')[1] || '—' }}</td>
+            <td class="text-muted">&#64;{{ user.username || user.email?.split('&#64;')[0] || 'user' }}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

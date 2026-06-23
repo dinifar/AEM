@@ -1,0 +1,97 @@
+.dashboard-page {
+  background-color: #fdfdfd;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.dashboard-main-title {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #000000;
+}
+
+.dashboard-section-title {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #000000;
+}
+
+// Chart Cards styling mimicking the layout
+.chart-card {
+  background: #ffffff;
+  border: 1px solid #b8b8b8;
+  border-radius: 6px;
+  overflow: hidden;
+
+  .chart-card-header {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 20px;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: #222222;
+  }
+
+  .chart-card-body {
+    padding: 30px;
+    height: 320px;
+    background-color: #ffffff;
+  }
+
+  .chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 260px;
+  }
+}
+
+// Table Container Framework Structure
+.table-card {
+  border: 1px solid #c8c8c8;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.custom-dashboard-table {
+  border-collapse: collapse;
+  
+  thead {
+    background-color: #f5f5f5;
+    
+    th {
+      font-weight: 500;
+      color: #000000;
+      border-bottom: 1px solid #cccccc;
+      border-right: 1px solid #e0e0e0;
+      padding: 14px;
+      font-size: 0.95rem;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #e8e8e8;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      td {
+        padding: 14px;
+        color: #333333;
+        font-size: 0.95rem;
+        border-right: 1px solid #e8e8e8;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
